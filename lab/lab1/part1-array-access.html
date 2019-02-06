@@ -75,9 +75,21 @@
 
     ===================== */
 
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
+    var restaurant = [{"lat":39.951028, "long":-75.174933, "label": "Vernick Food & Drink"},
+    {"lat":39.955017 , "long":-75.172380, "label": "Chima Steakhouse"},
+    {"lat":39.954434 , "long":-75.192737, "label": "White Dog Cafe"}]
+
+    var addmarker = function (obj) {
+      console.log(obj);
+      return L.marker([obj.lat, obj.long]).bindPopup(obj.label).addTo(map)
+    };
+    restaurant.forEach(addmarker)
+
+    var newarray = [{"lat":39.954042, "long":-75.197425, "label": "honeygrow"},
+    {"lat":39.954149, "long": -75.195944, "label": "Pod"}]
+
+   var new2 = restaurant.concat(newarray);
+   new2.forEach(addmarker);
 
     /* =====================
 

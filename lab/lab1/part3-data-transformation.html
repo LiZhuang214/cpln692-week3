@@ -13,8 +13,8 @@
 
     <!--javascript imports-->
     <script src="leaflet.js"></script>
-    <script src="part4-data-clean.js"></script>
-    <script src="part4-data-dirty.js"></script>
+    <script src="part3-data-clean.js"></script>
+    <script src="part3-data-dirty.js"></script>
 
     <script>
 
@@ -72,6 +72,13 @@
     ===================== */
 
 
+    let dataFiltered =[];
+    for(var i = 0; i < data.length; i++) {
+      if (data[i][3] >20)
+      dataFiltered.push(data[i]);
+    }
+
+    console.log(dataFiltered);
 
     /* =====================
 
@@ -98,7 +105,11 @@
 
     ===================== */
 
-
+    var addmarker = function (obj) {
+      console.log(obj);
+      return L.marker([obj[1], obj[0]]).bindPopup(obj[2]).addTo(map)
+    };
+      dataFiltered.forEach(addmarker)
 
     /* =====================
 
